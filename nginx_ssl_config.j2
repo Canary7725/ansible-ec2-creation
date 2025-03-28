@@ -1,0 +1,19 @@
+server {
+    listen 80;
+    listen 443 ssl;
+    server_name ansible.example.com;
+
+    ssl_certificate /etc/ssl/certs/nginx-selfsigned.crt;
+    ssl_certificate_key /etc/ssl/private/nginx-selfsigned.key;
+
+    root /var/www;
+    index index.html;
+
+    location /page1 {
+        alias /var/www/task1;
+    }
+
+    location /page2 {
+        alias /var/www/task2;
+    }
+}
